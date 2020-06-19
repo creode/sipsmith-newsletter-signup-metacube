@@ -1,0 +1,21 @@
+{
+    "name": "creode/sipsmith-newsletter-signup",
+    "description": "Handles newsletter signups for various forms across the Sipsmith Site",
+    "type": "wordpress-plugin",
+    "repositories": [
+        {
+          "type": "composer",
+          "url": "https://packagist.creode.co.uk"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Jamie Sykes",
+            "email": "jamie.sykes@creode.co.uk"
+        }
+    ],
+    "require": {
+        "creode/marketing-signup-mailchimp": "^1.0",
+        "creode/newsletter-consent-fields": "^1.0"
+    }
+}
