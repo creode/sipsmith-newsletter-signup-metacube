@@ -12,7 +12,6 @@
  *
  * @package CGB
  */
-
-require_once WP_PLUGIN_DIR . '/sipsmith-newsletter-signup/src/class-sipsmith-newsletter-signup.php';
+require_once plugin_dir_path(__FILE__) . 'src/class-sipsmith-newsletter-signup.php';
 
 new Sipsmith_Newsletter_Signup();
