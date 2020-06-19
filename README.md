@@ -12,8 +12,11 @@ The goal is to make it easy to switch out which API to use when interacting with
 
 * `newsletter_consent_field_checkbox_copy` - Changes the copy of the Marketing checkbox on the website to make it specific to Sipsmith.
 
-## Environment Variables
+## Environment Variables
 
-In order to pass an API key to the Marketing Signup libraries we check if we have a variable titled `NEWSLETTER_API_KEY` (usually this would be done in the `wp-config.php` or `local-config.php` file).
+In order to pass an API key to the Marketing Signup libraries we check if we have a the following constants:
 
-If this variable is not defined we don't submit any data to the library so it is important this is setup.
+* `NEWSLETTER_API_KEY` - If this variable is not defined we don't submit any data to the library so it is important this is setup.
+* `NEWSLETTER_LIST_ID` - If this variable is not defined we don't submit any data to the library so it is important this is setup.
+
+These constants should be defined inside the `wp-config.php` file or the `local-config.php` file inside WordPress.
