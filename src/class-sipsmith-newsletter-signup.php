@@ -16,7 +16,7 @@ class Sipsmith_Newsletter_Signup {
 		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeInterface.php',
 		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupSenderBase.php',
 		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeBase.php',
-		ABSPATH . '../../vendor/drewm/mailchimp-api/src/Mailchimp.php',
+		ABSPATH . '../../vendor/drewm/mailchimp-api/src/MailChimp.php',
 		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignup.php',
 		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignupSender.php',
 	);
