@@ -20,3 +20,19 @@ In order to pass an API key to the Marketing Signup libraries we check if we hav
 * `NEWSLETTER_LIST_ID` - If this variable is not defined we don't submit any data to the library so it is important this is setup.
 
 These constants should be defined inside the `wp-config.php` file or the `local-config.php` file inside WordPress.
+
+## Newsletter Submission App Wide
+
+This plugin provides the functionality to submit newsletter configuration app wide. The goal is to ensure that all parts of the app that need to send signup data use this single place to do it. The class currently used for this is the `src/class-sipsmith-newsletter-signup-submission.php` file.
+
+### Defined Filters
+
+The plugin applies the following filters:
+
+* `sipsmith_newsletter_signup_submission_amend_data($data)` - This filter is applied before sending data and will allow us to add extra dynamic fields in different places of the app. The goal is to give us the flexibility to amend information before it is passed to a third party.
+
+### Defined Actions
+
+The plugin does the following actions:
+
+* `sipsmith_newsletter_signup_submission_post_submit($sent_data)` - This action is ran after submitting data to the third party service. This will allow us to carry out any actions like register someone onto a coupon or use the submitted data for other things.
