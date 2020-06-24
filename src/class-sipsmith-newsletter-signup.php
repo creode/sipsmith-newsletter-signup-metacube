@@ -1,6 +1,6 @@
 <?php
 
-use Creode\MarketingSignupMailchimp\MailchimpSignup;
+use Sipsmith_Newsletter_Signup_Submission;
 
 /**
 * Main entrypoint for the Plugin.
@@ -12,13 +12,7 @@ class Sipsmith_Newsletter_Signup {
 	 * @var array
 	 */
 	private $dependencies = array(
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupSenderInterface.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeInterface.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupSenderBase.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeBase.php',
-		ABSPATH . '../../vendor/drewm/mailchimp-api/src/MailChimp.php',
-		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignup.php',
-		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignupSender.php',
+		__DIR__ . '/class-sipsmith-newsletter-signup-submission.php',
 	);
 
 	/**
@@ -75,11 +69,12 @@ class Sipsmith_Newsletter_Signup {
 			),
 		);
 
-		// Load in any classes I need.
+		// Load in the classes required.
 		$this->load_signup_dependencies();
 
-		$newsletter = new MailchimpSignup( $data, array( 'api_key' => NEWSLETTER_API_KEY ), NEWSLETTER_LIST_ID );
-		$newsletter->add();
+		// Submit data off to Third Party.
+		$newsletter_submission = new Sipsmith_Newsletter_Signup_Submission( $data, array( 'api_key' => NEWSLETTER_API_KEY ), NEWSLETTER_LIST_ID );
+		$newsletter_submission->submit();
 	}
  
 	/**
@@ -104,3 +99,4 @@ class Sipsmith_Newsletter_Signup {
 		}
 	}
 }
+
