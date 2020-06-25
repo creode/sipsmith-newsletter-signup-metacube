@@ -35,4 +35,4 @@ The plugin applies the following filters:
 
 The plugin does the following actions:
 
-* `sipsmith_newsletter_signup_submission_post_submit($sent_data)` - This action is ran after submitting data to the third party service. This will allow us to carry out any actions like register someone onto a coupon or use the submitted data for other things.
+* `sipsmith_newsletter_signup_submission_post_submit($sent_data, $signup_response)` - This action is ran after submitting data to the third party service. This will allow us to carry out any actions like register someone onto a coupon or use the submitted data for other things.

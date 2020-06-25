@@ -75,11 +75,11 @@ class Sipsmith_Newsletter_Signup_Submission {
 		// Pre Submit filter to amend data.
 		$data = apply_filters( 'sipsmith_newsletter_signup_submission_amend_data', $this->data );
 
-		$newsletter = new MailchimpSignup( $data, array( 'api_key' => $this->api_arguments['api_key'] ), $this->list_id );
-		$newsletter->add();
+		$newsletter      = new MailchimpSignup( $data, array( 'api_key' => $this->api_arguments['api_key'] ), $this->list_id );
+		$signup_response = $newsletter->add();
 
 		// Post Submit action.
-		do_action( 'sipsmith_newsletter_signup_submission_post_submit', $data );
+		do_action( 'sipsmith_newsletter_signup_submission_post_submit', $data, $signup_response );
 	}
 
 	/**
