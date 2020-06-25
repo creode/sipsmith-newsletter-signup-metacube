@@ -1,10 +1,19 @@
 <?php
-
-use Sipsmith_Newsletter_Signup_Submission;
+/**
+ * Sipsmith Newsletter Signup
+ *
+ * Main entrypoint for the Signup Plugin that contains specific amends to send signup data.
+ *
+ * @category   Contains specific amends for plugin when sending signup data off to a third party.
+ * @package    Sipsmith Newsletter Signup
+ * @author     Creode
+ * @link       https://www.creode.co.uk
+ * @since      1.1.0
+ */
 
 /**
-* Main entrypoint for the Plugin.
-*/
+ * Main entrypoint for the Plugin.
+ */
 class Sipsmith_Newsletter_Signup {
 	/**
 	 * Classes needed as dependencies of this plugin.
@@ -76,7 +85,7 @@ class Sipsmith_Newsletter_Signup {
 		$newsletter_submission = new Sipsmith_Newsletter_Signup_Submission( $data, array( 'api_key' => NEWSLETTER_API_KEY ), NEWSLETTER_LIST_ID );
 		$newsletter_submission->submit();
 	}
- 
+
 	/**
 	 * Change the newsletter consent copy for the website.
 	 *
