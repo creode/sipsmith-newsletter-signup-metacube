@@ -1,7 +1,21 @@
 <?php
+/**
+ * Sipsmith Newsletter Signup Submission
+ *
+ * Class used to talk to a third party service which should be used sitewide in order to keep it in one place.
+ *
+ * @category   Submission helper for sending signup data off to a third party.
+ * @package    Sipsmith Newsletter Signup
+ * @author     Creode
+ * @link       https://www.creode.co.uk
+ * @since      1.1.0
+ */
 
 use Creode\MarketingSignupMailchimp\MailchimpSignup;
 
+/**
+ * Signup Submission class.
+ */
 class Sipsmith_Newsletter_Signup_Submission {
 	/**
 	 * Classes needed as dependencies of this plugin.

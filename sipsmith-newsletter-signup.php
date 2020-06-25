@@ -6,7 +6,7 @@
  * Author: Creode
 
  * Author URI: https://www.creode.co.uk
- * Version: 1.1.0
+ * Version: 1.2.1
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  *
