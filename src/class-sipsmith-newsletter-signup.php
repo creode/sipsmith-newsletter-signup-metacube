@@ -69,7 +69,7 @@ class Sipsmith_Newsletter_Signup {
 			),
 		);
 
-		// Load in the newsletter signup submission class.
+		// Load in the classes required.
 		$this->load_signup_dependencies();
 
 		// Submit data off to Third Party.
