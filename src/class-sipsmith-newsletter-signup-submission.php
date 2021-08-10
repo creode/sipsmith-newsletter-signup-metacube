@@ -11,7 +11,7 @@
  * @since      1.1.0
  */
 
-use Creode\MarketingSignupMailchimp\MailchimpSignup;
+use Creode\MarketingSignupMetacube\MetacubeSignup;
 
 /**
  * Signup Submission class.
@@ -23,13 +23,7 @@ class Sipsmith_Newsletter_Signup_Submission {
 	 * @var array
 	 */
 	private $dependencies = array(
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupSenderInterface.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeInterface.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupSenderBase.php',
-		ABSPATH . '../../vendor/creode/marketing-signup/src/MarketingSignupTypeBase.php',
-		ABSPATH . '../../vendor/drewm/mailchimp-api/src/MailChimp.php',
-		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignup.php',
-		ABSPATH . '../../vendor/creode/marketing-signup-mailchimp/src/MailchimpSignupSender.php',
+		ABSPATH . '../../vendor/autoload.php',
 	);
 
 	/**
@@ -89,7 +83,7 @@ class Sipsmith_Newsletter_Signup_Submission {
 		// Pre Submit filter to amend data.
 		$data = apply_filters( 'sipsmith_newsletter_signup_submission_amend_data', $this->data );
 
-		$newsletter      = new MailchimpSignup( $data, array( 'api_key' => $this->api_arguments['api_key'] ), $this->list_id );
+		$newsletter      = new MetacubeSignup( $data, $this->api_arguments, $this->list_id);
 		$signup_response = $newsletter->add();
 
 		// Post Submit action.
