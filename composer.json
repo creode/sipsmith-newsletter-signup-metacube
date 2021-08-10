@@ -1,5 +1,5 @@
 {
-    "name": "creode/sipsmith-newsletter-signup",
+    "name": "creode/sipsmith-newsletter-signup-metacube",
     "description": "Handles newsletter signups for various forms across the Sipsmith Site",
     "type": "wordpress-plugin",
     "repositories": [
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "creode/marketing-signup-mailchimp": "^1.0",
+        "creode/marketing-signup-metacube": "^1.0",
         "creode/newsletter-consent-fields": "^1.0"
     }
 }
