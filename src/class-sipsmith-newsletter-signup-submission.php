@@ -73,7 +73,11 @@ class Sipsmith_Newsletter_Signup_Submission {
 	 * @throws Exception Throws error if API Key is not set.
 	 */
 	private function submit_data() {
-		if ( ! isset( $this->api_arguments['api_key'] ) ) {
+		if (
+			( ! isset( $this->api_arguments['base_uri'] ) ) ||
+			( ! isset( $this->api_arguments['client_id'] ) ) ||
+			( ! isset( $this->api_arguments['client_secret'] ) )
+		) {
 			throw new Exception( 'API Key must be provided as part of the api_arguments array.' );
 		}
 
