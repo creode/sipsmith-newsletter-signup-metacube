@@ -62,13 +62,13 @@ class Sipsmith_Newsletter_Signup {
 
 		// Check defined API credentials.
 		if (
-			! defined( METACUBE_KEY ) ||
+			( ! defined( 'METACUBE_KEY' ) ) ||
 			METACUBE_KEY['client_id'] === '' ||
 			METACUBE_KEY['client_secret'] === ''
 		) {
 				return;
 		}
-		if ( ! defined( METACUBE_NEWSLETTER_EVENT ) || METACUBE_NEWSLETTER_EVENT === '') {
+		if ( ! defined( 'METACUBE_NEWSLETTER_EVENT' ) || METACUBE_NEWSLETTER_EVENT === '') {
 			return;
 		}
 
