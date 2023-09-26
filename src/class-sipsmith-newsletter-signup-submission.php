@@ -11,6 +11,7 @@
  * @since      1.1.0
  */
 
+use Creode\MarketingSignup\DuplicateKeyException;
 use Creode\MarketingSignupMetacube\MetacubeSignup;
 
 /**
@@ -87,8 +88,16 @@ class Sipsmith_Newsletter_Signup_Submission {
 		// Pre Submit filter to amend data.
 		$data = apply_filters( 'sipsmith_newsletter_signup_submission_amend_data', $this->data );
 
-		$newsletter      = new MetacubeSignup( $data, $this->api_arguments, $this->list_id);
-		$signup_response = $newsletter->add();
+		$newsletter = new MetacubeSignup( $data, $this->api_arguments, $this->list_id);
+		try {
+			$signup_response = $newsletter->add();
+		} catch ( DuplicateKeyException $e ) {
+			// If the user already exists, we don't want to throw an error.
+			$signup_response = array(
+				'status' => 'subscribed',
+				'message' => 'User already exists.',
+			);
+		}
 
 		// Post Submit action.
 		do_action( 'sipsmith_newsletter_signup_submission_post_submit', $data, $signup_response );
