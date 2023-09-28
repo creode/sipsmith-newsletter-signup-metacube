@@ -16,6 +16,6 @@
     ],
     "require": {
         "creode/marketing-signup-metacube": "^1.0",
-        "creode/newsletter-consent-fields": "^2.0"
+        "creode/newsletter-consent-fields": "^1.0 || ^2.0"
     }
 }
