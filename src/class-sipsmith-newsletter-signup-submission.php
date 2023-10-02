@@ -88,7 +88,7 @@ class Sipsmith_Newsletter_Signup_Submission {
 		// Pre Submit filter to amend data.
 		$data = apply_filters( 'sipsmith_newsletter_signup_submission_amend_data', $this->data );
 
-		$newsletter = new MetacubeSignup( $data, $this->api_arguments, $this->list_id);
+		$newsletter = new MetacubeSignup( $data, $this->api_arguments, $this->list_id );
 		try {
 			$signup_response = $newsletter->add();
 		} catch ( DuplicateKeyException $e ) {
@@ -96,6 +96,13 @@ class Sipsmith_Newsletter_Signup_Submission {
 			$signup_response = array(
 				'status' => 'subscribed',
 				'message' => 'User already exists.',
+			);
+		} catch ( \Exception $e ) {
+			// Catch any other exceptions and just state they are errors.
+			// This is to prevent any errors from being shown to the user.
+			$signup_response = array(
+				'status'  => 'error',
+				'message' => $e->getMessage(),
 			);
 		}
 
