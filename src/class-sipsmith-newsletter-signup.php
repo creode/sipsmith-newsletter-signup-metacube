@@ -54,24 +54,19 @@ class Sipsmith_Newsletter_Signup {
 		// Check defined API credentials.
 		if (
 			( ! defined( 'METACUBE_KEY' ) ) ||
-			METACUBE_KEY['client_id'] === '' ||
-			METACUBE_KEY['client_secret'] === ''
+			'' === METACUBE_KEY['client_id'] ||
+			'' === METACUBE_KEY['client_secret']
 		) {
 				return;
 		}
-		if ( ! defined( 'METACUBE_NEWSLETTER_EVENT' ) || METACUBE_NEWSLETTER_EVENT === '') {
+		if ( ! defined( 'METACUBE_NEWSLETTER_EVENT' ) || METACUBE_NEWSLETTER_EVENT === '' ) {
 			return;
 		}
 
 		$data = array(
-			'Email_Address' => $email_address,
-			'I agree to receive occasional emails from Sipsmith' => $subscription_status === 1,
-			'Opt_In_Time' => ( new DateTime() )->format( 'm/d/Y H:i' ),
+			'EmailAddress'   => $email_address,
+			'MarketingOptIn' => 1 === $subscription_status ? true : false,
 		);
-
-		if ( $newsletter_source ) {
-			$data['Opt_In_Competition'] = $newsletter_source;
-		}
 
 		// Load in the classes required.
 		$this->load_signup_dependencies();
